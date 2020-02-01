@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLaceFont extends Migration
+class CreateScoreSettingAge extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,11 @@ class CreateLaceFont extends Migration
      */
     public function up()
     {
-        Schema::create('lace_font', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('client_id');
-            $table->string('description');
-            $table->double('amounts');
+        Schema::create('score_setting_age', function (Blueprint $table) {
+            $table->increments('id');
+            $table->integer('startAge')->nullable();
+            $table->integer('endAge')->nullable();
+            $table->integer('score')->default(0);
             $table->timestamps();
         });
     }
@@ -29,6 +29,6 @@ class CreateLaceFont extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lace_font');
+        Schema::dropIfExists('score_setting_age');
     }
 }

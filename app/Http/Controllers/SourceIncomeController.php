@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\ClientAdditionalInfo;
+use App\Models\SourceIncome;
 use App\Utils\Controllers\ControllerModel;
 
 /**
  * Criei a class ControllerModel que contem algumas functions basica para REST API
  */
-class ClientAdditionalInfoController extends ControllerModel
+class SourceIncomeController extends ControllerModel
 {
-    protected $modelName = ClientAdditionalInfo::class;
+    protected $modelName = SourceIncome::class;
     protected $basicValidate = [
         'client_id'=>'required|numeric',
-        'birthday' => 'required|date',
+        'description' => 'required|string',
+        'amounts' => 'required|numeric',
     ];
 
     protected $columnsEncrypted = [];

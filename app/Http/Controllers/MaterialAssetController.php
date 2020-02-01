@@ -2,18 +2,19 @@
 
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
-use App\Models\ClientAdditionalInfo;
+use App\Models\MaterialAsset;
 use App\Utils\Controllers\ControllerModel;
 
 /**
  * Criei a class ControllerModel que contem algumas functions basica para REST API
  */
-class ClientAdditionalInfoController extends ControllerModel
+class MaterialAssetController extends ControllerModel
 {
-    protected $modelName = ClientAdditionalInfo::class;
+    protected $modelName = MaterialAsset::class;
     protected $basicValidate = [
         'client_id'=>'required|numeric',
-        'birthday' => 'required|date',
+        'description' => 'required|string',
+        'price' => 'required|numeric',
     ];
 
     protected $columnsEncrypted = [];
