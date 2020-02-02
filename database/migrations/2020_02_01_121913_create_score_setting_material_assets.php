@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateScoreSettingMaterialAssests extends Migration
+class CreateScoreSettingMaterialAssets extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateScoreSettingMaterialAssests extends Migration
      */
     public function up()
     {
-        Schema::create('score_setting_material_assests', function (Blueprint $table) {
+        Schema::create('score_setting_material_assets', function (Blueprint $table) {
             $table->increments('id');
             $table->double('price')->nullable();
             $table->integer('score')->default(0);
@@ -28,6 +28,6 @@ class CreateScoreSettingMaterialAssests extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('score_setting_material_assests');
+        Schema::dropIfExists('score_setting_material_assets');
     }
 }

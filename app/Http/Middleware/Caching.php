@@ -16,7 +16,7 @@ class Caching
     public function handle($request, Closure $next)
     {
         
-        if($request->isMethod('get')){
+        if($request->isMethod('get') && env('ENABLE_CACHE_ROUTES', true)){
             $cacheKey = $request->getPathInfo();
 
             if(!\Cache::has($cacheKey)) {

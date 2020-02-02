@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
         Address::observe(AddressObservers::class);
         ClientAdditionalInfo::observe(ClientAdditionalInfoObservers::class);
         MaterialAsset::observe(MaterialAssetObservers::class);
-        SourceIncome::observe(SourceIncomeInfoObservers::class);
+        SourceIncome::observe(SourceIncomeObservers::class);
     }
 }
