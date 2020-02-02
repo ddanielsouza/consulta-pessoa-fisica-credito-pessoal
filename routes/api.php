@@ -28,6 +28,8 @@ $router->group(['prefix'=>'api', 'middleware' => ['\App\Http\Middleware\Caching'
         $router->put('/{id}', 'ClientAdditionalInfoController@update');
         $router->patch('/{id}', 'ClientAdditionalInfoController@patch');
         $router->delete('/{id}', 'ClientAdditionalInfoController@delete');
+        $router->get('/client/{idClient}/score', 'ClientAdditionalInfoController@score');
+        
     });
 
     $router->group(['prefix'=>'material-assets'], function() use ($router){

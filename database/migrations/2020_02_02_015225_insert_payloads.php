@@ -52,12 +52,12 @@ class InsertPayloads extends Migration
 
         ScoreSettingMaterialAssets::create([
             'price' => 10000,
-            'score' => 100,
+            'score' => 50,
         ]);
 
         ScoreSettingSourceIncome::create([
             'price' => 1000,
-            'score' => 100,
+            'score' => 50,
         ]);
         
         $materialAssets = ["Carro", "Imovel", "Moto", "lote"];

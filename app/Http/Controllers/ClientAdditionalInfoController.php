@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\ClientAdditionalInfo;
 use App\Utils\Controllers\ControllerModel;
-
+use App\Facades\Services\ClientAdditionalInfoService;
 /**
  * Criei a class ControllerModel que contem algumas functions basica para REST API
  */
@@ -28,5 +28,20 @@ class ClientAdditionalInfoController extends ControllerModel
         $this->middleware('auth', ['except' => []]);
     }
 
-    
+
+    public function score($idClient){
+        try{
+            $score = ClientAdditionalInfoService::calcScoreByIdClient($idClient);
+            return response()->json([
+                'success' => true,
+                'data' => $score,
+            ]);
+        }catch(\Exception $e){
+            return response()->json([
+                'success' => false,
+                'message' => 'Error interno!',
+                'error' => [$e->getMessage()]
+            ], 500);
+        }
+    }
 }
