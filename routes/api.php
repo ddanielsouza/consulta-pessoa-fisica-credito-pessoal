@@ -11,7 +11,7 @@
 |
 */
 
-$router->group(['prefix'=>'api'], function() use ($router){
+$router->group(['prefix'=>'api', 'middleware' => ['\App\Http\Middleware\Caching']], function() use ($router){
     $router->group(['prefix'=>'address'], function() use ($router){
         $router->post('/', 'AddressController@save');
         $router->get('/', 'AddressController@get');

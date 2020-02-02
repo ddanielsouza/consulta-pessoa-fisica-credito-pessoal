@@ -3,7 +3,15 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use App\Observers\AddressObservers;
+use App\Observers\ClientAdditionalInfoObservers;
+use App\Observers\MaterialAssetObservers;
+use App\Observers\SourceIncomeObservers;
 
+use App\Models\Address;
+use App\Models\ClientAdditionalInfo;
+use App\Models\MaterialAsset;
+use App\Models\SourceIncome;
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -11,8 +19,11 @@ class AppServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function register()
+    public function boot()
     {
-        //
+        Address::observe(AddressObservers::class);
+        ClientAdditionalInfo::observe(ClientAdditionalInfoObservers::class);
+        MaterialAsset::observe(MaterialAssetObservers::class);
+        SourceIncome::observe(SourceIncomeInfoObservers::class);
     }
 }

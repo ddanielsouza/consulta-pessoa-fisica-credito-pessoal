@@ -15,8 +15,8 @@ class CreateClientAdditionalInfos extends Migration
     {
         Schema::create('client_additional_infos', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigInteger('client_id');
-            $table->timestamp('birthday');
+            $table->bigInteger('client_id')->unique();
+            $table->date('birthday');
             $table->timestamps();
         });
     }
