@@ -7,6 +7,8 @@ use App\Models\SourceIncome;
 use App\Models\ScoreSettingAge;
 use App\Models\ScoreSettingMaterialAssets;
 use App\Models\ScoreSettingSourceIncome;
+use App\Facades\Helpers\APIDebts;
+
 use DateTime;
 class ClientAdditionalInfoService
 {
@@ -49,7 +51,11 @@ class ClientAdditionalInfoService
 
         $score += $sourceIncomeAmounts > 0 ? 
             ceil(($sourceIncomeAmounts / $settingSourceIncome->price) * $settingSourceIncome->score): 0;
-            
-        return $score > 1000 ? 1000 : $score;
+        
+        $score = $score > 1000 ? 1000 : $score;
+        $debts  = APIDebts::getDebts(['isActive' => true, 'client_id' => $idClient]);
+        $score -= count($debts) * 100;
+
+        return $score < 0 ? 0 : $score;
     }
 }

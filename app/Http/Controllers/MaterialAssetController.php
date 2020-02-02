@@ -5,9 +5,7 @@ use Illuminate\Http\Request;
 use App\Models\MaterialAsset;
 use App\Utils\Controllers\ControllerModel;
 
-/**
- * Criei a class ControllerModel que contem algumas functions basica para REST API
- */
+
 class MaterialAssetController extends ControllerModel
 {
     protected $modelName = MaterialAsset::class;

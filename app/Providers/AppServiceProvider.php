@@ -26,4 +26,12 @@ class AppServiceProvider extends ServiceProvider
         MaterialAsset::observe(MaterialAssetObservers::class);
         SourceIncome::observe(SourceIncomeObservers::class);
     }
+
+    public function register()
+    {
+        $this->app->singleton('Helpers\APIDebts', function()
+        {
+            return \App\Helpers\APIDebts::getInstance();
+        });
+    }
 }

@@ -5,9 +5,6 @@ use Illuminate\Http\Request;
 use App\Models\SourceIncome;
 use App\Utils\Controllers\ControllerModel;
 
-/**
- * Criei a class ControllerModel que contem algumas functions basica para REST API
- */
 class SourceIncomeController extends ControllerModel
 {
     protected $modelName = SourceIncome::class;

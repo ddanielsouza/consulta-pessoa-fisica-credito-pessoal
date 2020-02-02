@@ -5,9 +5,8 @@ use Illuminate\Http\Request;
 use App\Models\ClientAdditionalInfo;
 use App\Utils\Controllers\ControllerModel;
 use App\Facades\Services\ClientAdditionalInfoService;
-/**
- * Criei a class ControllerModel que contem algumas functions basica para REST API
- */
+
+
 class ClientAdditionalInfoController extends ControllerModel
 {
     protected $modelName = ClientAdditionalInfo::class;
