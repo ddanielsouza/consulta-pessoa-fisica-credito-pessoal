@@ -12,11 +12,13 @@ class SourceIncomeObservers
 
     public function created(SourceIncome $model)
     {
+        \Cache::delete("/api/client-additional-infos/client/$model->client_id/score");
         $this->cacheClear($model->id);
     }
 
     public function updated(SourceIncome $model)
     {
+        \Cache::delete("/api/client-additional-infos/client/$model->client_id/score");
         $this->cacheClear($model->id);
     }
 

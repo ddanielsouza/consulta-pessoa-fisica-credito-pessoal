@@ -12,11 +12,13 @@ class MaterialAssetObservers
 
     public function created(MaterialAsset $model)
     {
+        \Cache::delete("/api/client-additional-infos/client/$model->client_id/score");
         $this->cacheClear($model->id);
     }
 
     public function updated(MaterialAsset $model)
     {
+        \Cache::delete("/api/client-additional-infos/client/$model->client_id/score");
         $this->cacheClear($model->id);
     }
 

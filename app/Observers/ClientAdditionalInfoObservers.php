@@ -17,6 +17,7 @@ class ClientAdditionalInfoObservers
 
     public function updated(ClientAdditionalInfo $model)
     {
+        \Cache::delete("/api/client-additional-infos/client/$model->client_id/score");
         $this->cacheClear($model->id);
     }
 
