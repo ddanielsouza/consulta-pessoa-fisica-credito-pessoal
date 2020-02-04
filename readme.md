@@ -130,7 +130,7 @@ Este tem dependencia do projeto consulta-pessoa-fisica-utils para maiores detalh
      ``` docker run -itd -p 5050:80 -e PGADMIN_DEFAULT_EMAIL=exemplo@email.com -e PGADMIN_DEFAULT_PASSWORD=123456 --name pgsql postgres --link pgsql ```
     * A aplicação em php irá rodar as "migrations" então não se preocupe em rodar nenhum script sql, apenas crie a database com nome de "consulta-pessoa-fisica-credito-pessoal"
 2. Instalando
-    * ``` git@github.com:ddanielsouza/consulta-pessoa-fisica-credito-pessoal.git ```
+    * ``` git clone git@github.com:ddanielsouza/consulta-pessoa-fisica-credito-pessoal.git ```
     * ``` git submodule update --init --recursive ```
     * ``` docker build -t credito . ```
 3. Rodando
