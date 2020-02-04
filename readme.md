@@ -121,24 +121,24 @@ Este tem dependencia do projeto consulta-pessoa-fisica-utils para maiores detalh
 
 1. Configurando o Banco
     * ```docker run -itd -p 5432:5432 -e POSTGRES_PASSWORD=123456 --name pgsql postgres```
-    * Será nescessário a criação da database "consulta-pessoa-fisica-clientes-dividas" então  para facilitar, rode a imagem do SGBD pgadmin 4 <br>
+    * Será nescessário a criação da database "consulta-pessoa-fisica-credito-pessoal" então  para facilitar, rode a imagem do SGBD pgadmin 4 <br>
      ``` docker run -itd -p 5050:80 -e PGADMIN_DEFAULT_EMAIL=exemplo@email.com -e PGADMIN_DEFAULT_PASSWORD=123456 --name pgsql postgres --link pgsql ```
-    * A aplicação em php irá rodar as "migrations" então não se preocupe em rodar nenhum script sql, apenas crie a database com nome de "consulta-pessoa-fisica-clientes-dividas"
+    * A aplicação em php irá rodar as "migrations" então não se preocupe em rodar nenhum script sql, apenas crie a database com nome de "consulta-pessoa-fisica-credito-pessoal"
 2. Instalando
-    * ``` git clone git@github.com:ddanielsouza/consulta-pessoa-fisica-clientes-dividas.git ```
+    * ``` git@github.com:ddanielsouza/consulta-pessoa-fisica-credito-pessoal.git ```
     * ``` git submodule update --init --recursive ```
-    * ``` docker build -t dividas . ```
+    * ``` docker build -t credito . ```
 3. Rodando
-    * ``` docker run -itd -p 8001:80 --link pgsql --name dividas --link auth dividas ```
+    * ``` docker run -itd -p 8003:80 --link pgsql --link dividas --link auth credito ```
     
-Após executar o banco será populados com alguns dados aleatorios, código: https://github.com/ddanielsouza/consulta-pessoa-fisica-clientes-dividas/blob/master/database/migrations/2020_02_02_030425_payloads.php
+Após executar o banco será populados com alguns dados aleatorios, código: https://github.com/ddanielsouza/consulta-pessoa-fisica-credito-pessoal/blob/master/database/migrations/2020_02_02_015225_insert_payloads.php
     
-### Arquitetura dos micros servicos
+### Arquitetura dos microsservicos
 A arquitetura adotada para os microsserviços foi a de login unico (Single sign-on)
 <img src="https://i.pinimg.com/originals/72/2d/dc/722ddc85dad8a4cdf783dbc23e660d33.png"/>
 
 * AUTH: <a href="https://github.com/ddanielsouza/consulta-pessoa-fisica-auth">https://github.com/ddanielsouza/consulta-pessoa-fisica-auth</a> 
-* consulta-pessoa-fisica-clientes-dividas: <a href="https://github.com/ddanielsouza/consulta-pessoa-fisica-clientes-dividas">https://github.com/ddanielsouza/consulta-pessoa-fisica-clientes-dividas</a> (<b>Este Projeto</b>)
-* consulta-pessoa-fisica-credito-pessoal: <a href="https://github.com/ddanielsouza/consulta-pessoa-fisica-credito-pessoal">https://github.com/ddanielsouza/consulta-pessoa-fisica-credito-pessoal</a>
+* consulta-pessoa-fisica-clientes-dividas: <a href="https://github.com/ddanielsouza/consulta-pessoa-fisica-clientes-dividas">https://github.com/ddanielsouza/consulta-pessoa-fisica-clientes-dividas</a> 
+* consulta-pessoa-fisica-credito-pessoal: <a href="https://github.com/ddanielsouza/consulta-pessoa-fisica-credito-pessoal">https://github.com/ddanielsouza/consulta-pessoa-fisica-credito-pessoal</a> (<b>Este Projeto</b>)
 * consulta-pessoa-fisica-eventos: <a href="https://github.com/ddanielsouza/consulta-pessoa-fisica-eventos">https://github.com/ddanielsouza/consulta-pessoa-fisica-eventos</a>
 * consulta-pessoa-fisica-utils: <a href="https://github.com/ddanielsouza/consulta-pessoa-fisica-utils">https://github.com/ddanielsouza/consulta-pessoa-fisica-utils</a>
