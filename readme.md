@@ -3,7 +3,7 @@
 Serviço desenvolvido no micro <a href="https://lumen.laravel.com/">framework Lumen</a> versão 6.0
 
 ### Proposta para o desenvolvimento deste projeto ###
-Fazer um serviço com bastante perfomance para consumir dados bastantes sensiveis e os armazenarem com segurança
+Fazer um serviço com bastante perfomance para consumir dados sensiveis e os armazenarem com segurança
 
 ### Solução ###
 A solução adotada para segurança do armazenamento foi a mesma do projeto "consulta-pessoa-fisica-clientes-dividas", para mais detalhes acesse <a href="https://github.com/ddanielsouza/consulta-pessoa-fisica-clientes-dividas">https://github.com/ddanielsouza/consulta-pessoa-fisica-clientes-dividas</a><br>.
